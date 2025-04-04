@@ -54,6 +54,17 @@ spring.jpa.hibernate.ddl-auto=update
 # Cloner le dépôt principal avec ses sous-modules
 ```sh
 git clone --recursive https://github.com/Olelouer/yoga-app
+cd yoga-app
+```
+
+# Préparation des sous-modules pour le développement
+# Cette étape est nécessaire car les sous-modules sont initialement en état "detached HEAD"
+```sh
+cd testing-yoga-front
+git checkout main
+cd ../testing-yoga-back
+git checkout main
+cd ..
 ```
 
 # OU si déjà cloné sans l'option --recursive
