@@ -1,0 +1,3 @@
+[submodule "testing-yoga-front"]
+	path = testing-yoga-front
+	url = https://github.com/Olelouer/testing-yoga-front
