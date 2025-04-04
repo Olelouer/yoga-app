@@ -51,16 +51,23 @@ spring.jpa.hibernate.ddl-auto=update
 
 ### Installation et démarrage
 
-Clonez le dépôt:
-
+# Cloner le dépôt principal avec ses sous-modules
 ```sh
-git clone https://github.com/Olelouer/yoga-app
+git clone --recursive https://github.com/Olelouer/yoga-app
 ```
 
-Accédez au dossier backend et installez les dépendances avec Maven:
+# OU si déjà cloné sans l'option --recursive
+```sh
+git clone https://github.com/Olelouer/yoga-app
+cd yoga-app
+git submodule init
+git submodule update
+```
+
+Accédez au module testing-yoga-back et installez les dépendances avec Maven:
 
 ```sh
-cd yoga-app/backend
+cd yoga-app/testing-yoga-back
 mvn clean install
 ```
 
@@ -81,10 +88,10 @@ Le serveur backend démarre sur [http://localhost:8080](http://localhost:8080).
 
 ### Installation et démarrage
 
-Accédez au dossier frontend de l'application:
+Accédez au module testing-yoga-back de l'application:
 
 ```sh
-cd yoga-app/front
+cd yoga-app/testing-yoga-front
 ```
 
 Installez les dépendances:
@@ -120,7 +127,7 @@ L'application frontend est accessible à l'adresse [http://localhost:4200](http:
 Exécution des tests unitaires et d'intégration:
 
 ```sh
-cd yoga-app/backend
+cd yoga-app/testing-yoga-back
 mvn test
 ```
 
@@ -135,7 +142,7 @@ target/site/jacoco/index.html
 Exécution des tests unitaires avec Jest:
 
 ```sh
-cd yoga-app/front
+cd yoga-app/testing-yoga-front
 npm run test
 ```
 
@@ -162,7 +169,7 @@ coverage/lcov-report/index.html
 Pour exécuter les tests end-to-end avec **Cypress**:
 
 ```sh
-cd yoga-app/front
+cd yoga-app/testing-yoga-front
 npm run e2e
 ```
 
