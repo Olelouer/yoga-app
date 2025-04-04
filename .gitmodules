@@ -1,3 +1,6 @@
 [submodule "testing-yoga-front"]
 	path = testing-yoga-front
 	url = https://github.com/Olelouer/testing-yoga-front
+[submodule "testing-yoga-back"]
+	path = testing-yoga-back
+	url = https://github.com/Olelouer/testing-yoga-back
