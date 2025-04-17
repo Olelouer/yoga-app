@@ -185,7 +185,7 @@ Pour exécuter les tests end-to-end avec **Cypress**:
 
 ```sh
 cd yoga-app/testing-yoga-front
-npm run e2e
+npm run e2e:ci
 ```
 
 Pour générer le rapport de couverture E2E:
