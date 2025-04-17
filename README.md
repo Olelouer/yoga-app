@@ -10,6 +10,32 @@ Ce document explique comment installer, configurer et tester l'application **Yog
 - [Ressources additionnelles](#ressources-additionnelles)
 - [Fonctionnalités principales](#fonctionnalités-principales)
 
+## Installation et démarrage
+
+# Cloner le dépôt principal avec ses sous-modules
+```sh
+git clone --recursive https://github.com/Olelouer/yoga-app
+cd yoga-app
+```
+
+# Préparation des sous-modules pour le développement
+# Cette étape est nécessaire car les sous-modules sont initialement en état "detached HEAD"
+```sh
+cd testing-yoga-front
+git checkout main
+cd ../testing-yoga-back
+git checkout main
+cd ..
+```
+
+# OU si déjà cloné sans l'option --recursive
+```sh
+git clone https://github.com/Olelouer/yoga-app
+cd yoga-app
+git submodule init
+git submodule update
+```
+
 ## Installation et configuration du backend
 
 ### Prérequis
@@ -40,6 +66,12 @@ Exécutez le script SQL fourni pour initialiser le schéma:
 mysql -u yoga_user -p yoga_app < ressources/sql/script.sql
 ```
 
+Ou :
+
+```sh
+Get-Content ressources\sql\script.sql | & "PATH_TO_MYSQL\MySQL\MySQL Server 8.0\bin\mysql" -u yoga_user -p yoga_app
+```
+
 Modifiez le fichier `application.properties` dans le dossier `src/main/resources`:
 
 ```properties
@@ -48,34 +80,6 @@ spring.datasource.username=yoga_user
 spring.datasource.password=password
 spring.jpa.hibernate.ddl-auto=update
 ```
-
-### Installation et démarrage
-
-# Cloner le dépôt principal avec ses sous-modules
-```sh
-git clone --recursive https://github.com/Olelouer/yoga-app
-cd yoga-app
-```
-
-# Préparation des sous-modules pour le développement
-# Cette étape est nécessaire car les sous-modules sont initialement en état "detached HEAD"
-```sh
-cd testing-yoga-front
-git checkout main
-cd ../testing-yoga-back
-git checkout main
-cd ..
-```
-
-# OU si déjà cloné sans l'option --recursive
-```sh
-git clone https://github.com/Olelouer/yoga-app
-cd yoga-app
-git submodule init
-git submodule update
-```
-
-Accédez au module testing-yoga-back et installez les dépendances avec Maven:
 
 ```sh
 cd yoga-app/testing-yoga-back
